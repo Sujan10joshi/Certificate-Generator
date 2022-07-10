@@ -1,0 +1,44 @@
+{% extends 'profiles/base.html' %}
+{% block content%}
+<div class="container mt-5">
+    <h2 class="text-center alert alert-danger">Fill the Form</h2>
+    <form action="" method = "POST">
+    {% csrf_token %}
+    <div class="row mt-5">
+    <div class="col-sm-4">
+        <label for="first_name" class="form-label">First Name:</label>
+        {{form.first_name}}                                   
+    </div>
+    <div class="col-sm-4">
+        <label for="middle_name" class="form-label">Middle Name:</label>
+        {{form.middle_name}}
+    </div>
+    <div class="col-sm-4">
+        <label for="last_name" class="form-label">Last Name:</label>
+        {{form.last_name}}
+    </div>
+    </div>
+    <div class="row mt-3">
+    <div class="col-sm-7">
+        <label for="address" class="form-label">Address:</label>
+        {{form.address}}                                   
+    </div>
+    <div class="col-sm-5">
+        <label for="contact_number" class="form-label">Contact Number:</label>
+        {{form.contact_number}}
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-7">
+            <label for="email" class="form-label">Email:</label>
+            {{form.email}}                                   
+        </div>
+        <div class="col-sm-5">
+            <label for="password" class="form-label">Password:</label>
+            {{form.password}}
+        </div>      
+    <div class="row mt-3">    
+        <input type = "Submit" class = "btn btn-success" value = "Submit">
+    </div>
+    </form>
+</div>
+{% endblock content%}

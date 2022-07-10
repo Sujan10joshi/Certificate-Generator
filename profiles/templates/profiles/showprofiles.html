@@ -1,0 +1,29 @@
+{% extends 'profiles/base.html' %}
+{% load static %}
+{% block content %}
+<div class = "container mt-5 html"> 
+    {% if usrdetail%}
+    <h2 class="text-center certihead"> CERTIFICATE OF RECOGNITION </h2>
+    <p class="text-center mt-5 certicontent"> This certificate is proudly presented to <br>
+      <b>{{usrdetail.first_name}} {{usrdetail.middle_name}} {{usrdetail.last_name}}</b> <br>
+      in recognition of completing the course.
+
+    {% endif %}
+    <div class =  "text-center result">
+        {% comment %} <button class = "dlpng"> Download </button> {% endcomment %}
+        <script src="{% static 'profiles/js/html2canvas.js' %}"></script>
+        <script>
+            //var container = document.getElementById("image-wrap"); //specific element on page
+			var container = document.body; // full page 
+			html2canvas(container).then(function(canvas) {
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "my-info.png";
+                link.href = canvas.toDataURL("image/png");
+                link.target = '_blank';
+                link.click();
+            });
+        </script>
+    </div>
+</div>
+{% endblock content %}
